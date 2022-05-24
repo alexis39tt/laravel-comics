@@ -2,23 +2,59 @@ main {
     .banner {
         width: 100%;
         height: 400px;
-        background-image: url('../../../../public/images/jumbotron.jpg');
+        background-image: url('../images/jumbotron.jpg');
     }
-    .comics{
-        background-color: $dc-gray;
-        padding: 0 $default-padding;
+
+    .comics {
+        background-color: $gray-bg;
+        padding: 0 calc($default-padding - 30px);
         position: relative;
-        .currentseries{
+
+        .currentseries {
             background-color: $dc-blue;
             position: absolute;
             padding: 7.5px 25px;
             top: -27.5px;
-            p{  
+
+            p {
                 color: white;
                 font-size: 2.5rem;
                 text-transform: uppercase;
                 font-weight: bold;
                 margin: 0;
+            }
+        }
+
+        .comicscontainer {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 40px 0;
+            .comic {
+                width: 192px;
+                max-height: 250px;
+                margin: 10px;
+                position: relative;
+                cursor: pointer;
+                transition: 0.2s;
+                &:hover{
+                    background-color: #4b4b4b3d;
+                    transform: scale(1.1);
+                }
+                .img {
+                    img {
+                        width: 192px;
+                        clip-path: polygon(0% 0%, 100% 0%, 100% 192px, 0% 192px);
+                    }
+                }
+
+                .title {
+                    color: white;
+                    text-transform: uppercase;
+                    position: absolute;
+                    top: 196px;
+                    font-size: 1.1rem;
+                }
+                
             }
         }
     }

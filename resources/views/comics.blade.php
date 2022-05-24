@@ -4,75 +4,35 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Comics</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <title>Comics</title>
 </head>
 
 <body>
-    <header>
-        <div class="top">
-            <p>DC POWER&#8480; VISA&#174;</p>
-            <p>ADDITIONAL DC SITES &#9660;</p>
-        </div>
-        <div class="bottom">
-            <div class="img">
-                <img src="{{ asset('images/dc-logo.png') }}" alt="logo">
-            </div>
-            <div class="links">
-                <ul>
-                    <a href="/characters">
-                        <li>characters</li>
-                    </a>
-                    <a href="/comics">
-                        <li>comics</li>
-                    </a>
-                    <a href="/movies">
-                        <li>movies</li>
-                    </a>
-                    <a href="/tv">
-                        <li>tv</li>
-                    </a>
-                    <a href="/games">
-                        <li>games</li>
-                    </a>
-                    <a href="/collectibles">
-                        <li>collectibles</li>
-                    </a>
-                    <a href="/videos">
-                        <li>videos</li>
-                    </a>
-                    <a href="/fans">
-                        <li>fans</li>
-                    </a>
-                    <a href="/news">
-                        <li>news</li>
-                    </a>
-                    <a href="/shop">
-                        <li>shop <span>&#9660;</span></li>
-                    </a>
-                </ul>
-            </div>
-            <div class="search">
-                <input type="text" placeholder="Search">
-            </div>
-        </div>
-    </header>
+    @include('partials.header')
     <main>
         <div class="banner"></div>
         <div class="comics">
             <div class="currentseries">
                 <p>Current series</p>
             </div>
-            <div class="comicscontainer">
-                @foreach($comics as $elm)
-                <p>{{ $elm['title'] }}</p>
+            <div class="comicscontainer" >
+                @foreach($comics as $key => $elm)
+                <a href="{{ url('comics', ['id' => $key]) }}">
+                <div class="comic">
+                    <div class="img">
+                        <img src="{{ $elm['thumb'] }}" alt="{{ $elm['title'] }}">
+                    </div>
+                    <div class="title">
+                        <p>{{ $elm['title'] }}</p>
+                    </div>
+                </div>
+                </a>
                 @endforeach
             </div>
         </div>
     </main>
-    <footer>
-
-    </footer>
+    @include('partials.footer')
 </body>
 
 </html>

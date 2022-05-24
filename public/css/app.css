@@ -1,5 +1,4 @@
-html,
-body {
+html, body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -26,7 +25,6 @@ ul {
 header {
   width: 100%;
 }
-
 header .top {
   max-width: 100%;
   height: 25px;
@@ -36,33 +34,28 @@ header .top {
   display: flex;
   justify-content: flex-end;
 }
-
 header .top p {
   margin: 0;
   margin-left: 50px;
   color: white;
 }
-
 header .bottom {
   max-width: 100%;
-  height: 120px;
+  height: 117px;
   padding: 0 18%;
   display: flex;
   justify-content: space-between;
   line-height: 120px;
 }
-
 header .bottom .img img {
   margin: 20px 0;
   max-width: 80px;
 }
-
 header .bottom .links ul {
   display: flex;
   justify-content: space-evenly;
   line-height: 100px;
 }
-
 header .bottom .links ul a {
   color: #444444;
   font-weight: bold;
@@ -72,18 +65,19 @@ header .bottom .links ul a {
   margin: 0 12px;
   transition: 0.2s;
 }
-
-header .bottom .links ul a :hover {
+header .bottom .links ul a:hover:not(a.active) {
   color: #0a82f9;
   border-bottom: 5px solid #0a82f9;
   transition: 0.2s;
 }
-
 header .bottom .links ul a span {
   font-size: 1rem;
   color: #0a82f9;
 }
-
+header .bottom .links ul a.active {
+  color: #0a82f9;
+  border-bottom: 5px solid #0a82f9;
+}
 header .bottom .search input {
   width: 150px;
   background: none;
@@ -102,22 +96,19 @@ header .bottom .search input {
 main .banner {
   width: 100%;
   height: 400px;
-  background-image: url(/images/jumbotron.jpg?1b0a3671766964a4114f90322970b124);
+  background-image: url("../images/jumbotron.jpg");
 }
-
 main .comics {
-  background-color: #444444;
-  padding: 0 18%;
+  background-color: #1c1c1c;
+  padding: 0 calc(18% - 30px);
   position: relative;
 }
-
 main .comics .currentseries {
   background-color: #0a82f9;
   position: absolute;
   padding: 7.5px 25px;
   top: -27.5px;
 }
-
 main .comics .currentseries p {
   color: white;
   font-size: 2.5rem;
@@ -125,4 +116,32 @@ main .comics .currentseries p {
   font-weight: bold;
   margin: 0;
 }
-
+main .comics .comicscontainer {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 40px 0;
+}
+main .comics .comicscontainer .comic {
+  width: 192px;
+  max-height: 250px;
+  margin: 10px;
+  position: relative;
+  cursor: pointer;
+  transition: 0.2s;
+}
+main .comics .comicscontainer .comic:hover {
+  background-color: rgba(75, 75, 75, 0.2392156863);
+  transform: scale(1.1);
+}
+main .comics .comicscontainer .comic .img img {
+  width: 192px;
+  -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 192px, 0% 192px);
+          clip-path: polygon(0% 0%, 100% 0%, 100% 192px, 0% 192px);
+}
+main .comics .comicscontainer .comic .title {
+  color: white;
+  text-transform: uppercase;
+  position: absolute;
+  top: 196px;
+  font-size: 1.1rem;
+}
